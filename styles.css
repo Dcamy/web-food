@@ -1,264 +1,169 @@
-
-
-/* The Body is all of the page, everything fits (or should fit) in the "Body". 
-Here we have 3 basic, every "everytime" settings for the body that should be adjusted 
-for each site yea sure, but the they need to be set each time to "something"
-
- The body consits of a few basic elements
-1. header
-2. main (broken down into several articals, sections etc. 
-3. footer*/
 body {
-  
-    /* Font family, may need to be pulled from Google Fonts, as a note the font link 
-  CSS styles link in the HTNL file should be above the "head" section  */
   font-family: "Open Sans", sans-serif;
-
-  /* We set the margin to 0 to take control from the HTML defaults that tend to 
-    make the site abit ungly by adding some margin all the way around making it so 
-    the background color doesn't reach the edges*/
   margin: 0;
-
-  /* Our over all site back ground color. Is supported by RGB, RGBA, Hex and so on */
   background-color: rgb(44, 41, 38);
 }
 
-/* "a" is for Anchor, it is the link function */
 a {
-
-    /* By applying text-decoration: none; we remove the underline links generally
-    have, also very ungly and a bit old school */
   text-decoration: none;
 }
 
-/* Here we set an ID=main-header on the HTML file, IDs are very specific closely related to 
-"class", This could have been just "header" however this allows us to be future ready if we 
-ever want to do something different on another page of the website*/
 #main-header {
-
-    /* Setting the over all header hight to 50px which is a good standard size for the header. 
-The header contains both the Logo and the nav/menu bar */
-height: 5rem;
-  /* ^^^ adjusted form 50px to 5rem to make it responsive to the users device and default 
-  settings in their browser */
-
-  /* Disply flex is how we take our header from it's original ul (unordered-list) to being inline. 
-This will put the logo on the left and the nav items on the right.
-One of a few steps to do so... see also  */
-display: flex;
-
-  /* The second step of pulling the nav away from the logo */
+  height: 5rem;
+  display: flex;
   justify-content: space-between;
-
-  /* Third step, the will bring the logo and nav items "centered" bring them to the same level i.e.
-  centered top to bottom */
   align-items: center;
-
-  /* Changes just the background of the header to help break it away form the main part of the page */
   background-color: rgb(29, 26, 24);
-
-  /* We add a little padding to the left and right. Padding, like margin can be done with a single
-  value setting it the same for all directions, two values top and bottom first here set to 0 and left 
-  to right, here set to 20px and lastly set individually starting at the top going clockwise here it would
-  be 0 top 20px right 0 bottom and 20px left */
   padding: 0 5%;
-  /*  ^^^ Changed to 5% of the total width of the page so large pages get a larger padding the smaller
-  devices like a cell phone*/
 }
 
-/* The logo is an a or anchor with an ID set to logo, to call up an ID in CSS start with a # so #ID or here
-#logo, even though it is just an achor we are doing very specific styling to JUST the logo so we asign it an
- ID */
 #logo {
-  
-    /* Setting the logo font size, should be played with until looks good and can always come back after more 
-    work has been done to make sure it fits the build overall*/
   font-size: 1.5rem;
-  /*  ^^^ If the normal default is 16px and we had 24px the new responsive unit becomes 1.5rm */
-
-
-  /* Setting the logo font to bold to give it a little pop */
   font-weight: bold;
-  
-  /* Setting the logos font color */
   color: rgb(238, 164, 80);
-  
-  /* This does as it says transforms the text to uppercase. Several options are offered can play with it but 
-  here we just set it and move on */
   text-transform: uppercase;
 }
 
-/* targeting our headers nav links, here we are planning ahead for our "responsive" site and giving ourselves
-the ability to target it in different states so we gave it an ID */
-#main-header ul {
-  
-    /* Removing the default ul dots to the left of ul items. A fun trick is to set a border-felt to make the 
-    dot a bar that grows for each line of the item in the list */
-  list-style: none;
-  
-  /* At this stage the nav links would be stacked ontop of eachother. This disply flex will put them inline 
-  it is important to note, "flax" is one dimention, meaning a single row or a single colume. if you want both
-  rows and columes you need to use display: grid; and then set the grid using fr i.e. how many columes, if 2 
-  colums set 1fr and 1fr if 3 1fr 1fr 1fr and so on*/
+.menu-btn {
+  width: 3rem;
+  height: 3rem;
   display: flex;
-  
-  /* Those nav links (il here) are now inline however touching eachother. To fix this we first take full control by
-  removing any defaults inharited from the parent ul or injected by the browser or HTML and set the margin to 
-  0 all the way around */
+  flex-direction: column;
+  justify-content: space-around;
+  display: none;
+}
+
+.menu-btn span {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+}
+
+#main-header ul {
+  list-style: none;
+  display: flex;
   margin: 0;
-  
-  /* Same for the padding */
   padding: 0;
 }
 
-/* With the defaults removed from the parent ul we set the margin for the specific #main-header il to 0 top and
-bottom and 16px left and right */
 #main-header li {
-  
-    /* By setting the margin to 16px we give our nav links a little space to breath */
   margin: 0 1rem;
-  /* ^^^ changed from 16px to 1rem */
 }
 
-/* Cleaning up the nav links (anchors) by setting their color and font size so they better fit the screen */
 #main-header nav a {
-  
-    /* nav link color */
   color: rgb(185, 131, 31);
-  
-  /* nav link font size */
   font-size: 1.25rem;
-  /* ^^^ Was 20px changed to 1.25rem for a more responsive feel to the site*/
 }
 
-/* We earlier removed the link underline by setting all "a" anchors to text-decoration none, however that makes 
-it hard for the user to really know something is a link, so we add a little hover effect to if the user "hovers"
-thier mouse over the link it will do something. Not if you are going to add boarder, background-color etc do 
-not do that with hover as that will cause the link to jump around*/
 #main-header nav a:hover {
-  
-  /* Yea I mean it's a font color */
-    color: rgb(228, 163, 44);
+  color: rgb(228, 163, 44);
 }
 
-/* Now starting on the main section of the site,
-Our H1 is a part of our SEO, we should only have one of these per site and use H2 as an h1 on other pages, this 
-will help google understand what your site is all about and further what sub-pages are specifically about */
-main h1 {
- 
-    /* Bringing theh1 center in the main/body of the page */
-  text-align: center;
-  /* Setting the h1 color */
-  color: rgb(238, 164, 80);
- 
-  /* and setting the h1 size, the size of the h1 does not impact your SEO, large or small the h1 tag tells google 
-  "this is what this site is about" */
-  
-  font-size: 3rem;
-  /* ^^^ from 48px to 3rem */
+#side-drawer {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(29, 26, 27);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
 }
 
-/* Now we start styling the main ul articals */
-#latest-products {
-  
-    /* Setting the width to give some space on the sides */
-  width: 80%;
-  /* ^^^ No change to the width as 80% works well for the section which sshould be using 80% of any given screen */
-
-  /* with the width set we can set the margin, by setting the left/right margin to auto we center this overall 
-  container within the page. We addeda a little top and bottom again, to give a little breathing room */
-  margin: 50px auto;
-  /* ^^^^ Changing from 50px to 2rem, this is also an over all adjustment to the margin as it was a bit much before */
+#side-drawer:target {
+  display: block;
 }
 
-/* first we set the parent, the ul specifitaclly the ID #latest-products ul (again building for future expantion */
-#latest-products ul {
-  
-    /* Dispaly grid gives us our 3 dimentions i.e. rows and columes. */
-  display: grid;
-  
-  /* With grid set we now define how many columes our grid should display. We want two equially sized columes so
-  we use 1fr 1fr. fr meaning fraction of the available space */
-  grid-template-columns: 1fr 1fr;
-  
-  /* This will leave our grid touching eachother and could push items way off the size of the page as this is 
-  is more specific then just "body" which we set to 80% of the available space/viewport so we set a bit of gap
-  again so they can breatha little*/
-  gap: 1rem;
-  /* ^^^ changing it from 16px to 1rem, again we want the space between cards to be dynamic instead of static */
+#side-drawer header {
+  height: 5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 5%;
+}
 
-  /* killing the inharitance we set the margin */ 
+#side-drawer ul {
+  list-style: none;
   margin: 0;
-  
-  /* and padding to 0 */
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#side-drawer a {
+  color: rgb(253, 239, 213);
+  font-size: 1.5rem;
+}
+
+#side-drawer li {
+  margin: 1rem 0;
+}
+
+main h1 {
+  text-align: center;
+  color: rgb(238, 164, 80);
+  font-size: 3rem;
+}
+
+#latest-products {
+  width: 80%;
+  margin: 50px auto;
+}
+
+#latest-products ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 0;
   padding: 0;
-  
-  /* removing the li dots from the cards*/
   list-style: none;
 }
 
-/* We are now targeting just the food item card(s) itself notice we are not targeting an ID but a class so we 
-switch from a "#" to a "." */
 .food-item {
-  /* We set the back ground color */
   background-color: rgb(228, 206, 182);
-  
-  /* The boarder radious which gives us those nice rounded corners */
   border-radius: 6px;
-  /* ^^^ Border radious is one of the few cases where it doesn't make sense to have a dynamic value, having corners 
-  getting more or less rounded on different screens could get pretty ungly lol */
-
-  /* and overflow hidden forces the image to comply with the boarder radious */
   overflow: hidden;
-  
 }
-/* fixing the images in the page, they are currently WAY to big,*/
 .food-item img {
-  
-    /* first we set the hight for our purpose here 240px looks good */
   height: 240px;
-  /* ^^^ Changing from 240px to 15rem */
-  
-  /* only setting the hight will distort the image so we also tell it that it can have it's natural full width
-  it is important to point out that if this does not match the aspect ratio the images will still be distorted */
   width: 100%;
-  /* ^^^ As a percentage this still works well */
-  
-  /* The width will lessen the distortion and make the images overall better fit the page layout however we 
-  now tell the image to fit itself into the defined space */
   object-fit: cover;
 }
 
-/* Now working on the text inside the card, the food names and the add to cart btns. */
 .food-item-content {
-    
-    /* We add a little padding to all the text in the card (h2 and btn) */
-    padding: 1rem;
-    /* ^^^ Change the padding from 16px to 1rem */
-
-    /* Centering the text */
-    text-align: center;
+  padding: 1rem;
+  text-align: center;
 }
 
-/* working on the btn */
+.food-item h2 {
+    margin: 0 0 1rem 0;
+}
+
 .btn {
-    
-    /* First we add some background color to the btn (which is just a specific kind of anchor */
-    background-color: rgb(228, 157, 44);
-
-    /* change the text color as we now have a different background color so they need to match */
-    color: white;
-
-    /* Round the corners on the button so they look nice */
-    border-radius: 4px;
-
-    /* And some padding 8px top/bottom and 24px left/right */
-    padding: 0.5rem 1.5rem;
-    /* ^^^ Changing from 8px and 24px to .5rem and 1.5rem */
+  background-color: rgb(228, 157, 44);
+  color: white;
+  border-radius: 4px;
+  padding: 0.5rem 1.5rem;
 }
 
 .btn:hover {
-    background-color: rgb(221, 134, 34);
+  background-color: rgb(221, 134, 34);
 }
 
+@media (max-width: 48rem) {
+  #main-header nav {
+    display: none;
+  }
 
+  .menu-btn {
+      display: flex;
+  }
+
+  main h1 {
+    font-size: 1.5rem;
+  }
+
+  #latest-products ul {
+    grid-template-columns: 100%;
+  }
+}

@@ -54,3 +54,54 @@ We will use rem, % and px for other elements, and mostly if not entirely rem for
 
 DESKTOP FIRST VS MOBILE FIRST
 Responsive design is about more then just units, 
+
+Desktop First - 
+Traditional Approach
+Office Based Audiance 
+Feature-rich websites
+
+Mobile First -
+Functional appraoch - less space to work with
+Lifestyle/news focused audiance IG is mobile first 
+"Content First" -
+
+Your adiance and thier device is the driving factor if you should build mobile first or desktop first
+This we have a huge impact in what you build and how you build it.
+
+Think of the MVP, do you build it for the desktop user and then adjust it for the mobile user or build smaller mobile and adjust for desktop. Both approaches are both valid, but today we generally build mobile first.
+
+As the course is made for office based users it follows the feature rich desktop first design flow
+
+
+GETTING STARTED WITH MEDIA QUERIES
+
+Is CSS
+
+@media (min width or max-width: 1200px) {
+                    p {
+            font-size: 2rem;
+                    }
+            }
+
+This tells the browser we need need to know about the users device, if it meets critiria use x
+
+Desktop First - we say if the screen is only 1200px start scaling down the contect and provide these NEW rules 2rem, and if again the px drop to say 768px we want to drop again and apply THESE NEW rules i.e. 1.5rem 
+
+Mobile First - we apply the revers logic, we build smaller say 1.5rem and if the screen is larger then apply 2rem, if it is a desktop apply 3rem. 
+
+This is not just rem, font size, color etc, the entire CSS code should be reapplied for the given screen size
+
+< 768px and < 1200px or > 768px and > 1200px either way you go these are called break points
+
+Only that which is defined by the media queries change, this could be only the font size. We do not write each line for each break point, we simply say We are building Desktop first, if you have a small 1200px then do this, if 768 do this for x, y, and z and sometime m, p, j, d and so on
+
+Common break point - (not the only ones)
+
+Portrait devices - 
+smart phone 480px 
+table 768px
+
+Landscape devices - 
+Notebook 1024px 
+Desktop 1200px 
+TV >1200px
